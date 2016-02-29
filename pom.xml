@@ -96,16 +96,17 @@
                     <preinstallScriptlet>
                         <script>
                             echo "Install start!"
-                            mkdir -p /opt/tomcat/latest/webapps/
+                            /etc/init.d/tomcat6 stop
                         </script>
                     </preinstallScriptlet>
                     <postinstallScriptlet>
                         <script>
+                            ln -s /var/lib/tomcat6/webapps /opt/tomcat/latest/webapps
                             echo "Install done."
                         </script>
                     </postinstallScriptlet>
                     <preremoveScriptlet>
-                         /etc/init.d/tomcat stop
+                         /etc/init.d/tomcat6 stop
                     </preremoveScriptlet>
                     <postremoveScriptlet>
                         rm -rf /opt/tomcat/latest/webapps
