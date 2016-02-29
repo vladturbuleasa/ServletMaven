@@ -106,10 +106,14 @@
                         </script>
                     </postinstallScriptlet>
                     <preremoveScriptlet>
+                        <script>
                          /etc/init.d/tomcat6 stop
+                        </script>
                     </preremoveScriptlet>
                     <postremoveScriptlet>
+                        <script>
                         rm -rf /opt/tomcat/latest/webapps
+                        </script>
                     </postremoveScriptlet>
                 </configuration>
             </plugin>
