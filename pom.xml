@@ -104,6 +104,12 @@
                             echo "Install done."
                         </script>
                     </postinstallScriptlet>
+                    <preremoveScriptlet>
+                         /etc/init.d/tomcat stop
+                    </preremoveScriptlet>
+                    <postremoveScriptlet>
+                        rm -rf /opt/tomcat/latest/webapps
+                    </postremoveScriptlet>
                 </configuration>
             </plugin>
 
