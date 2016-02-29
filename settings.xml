@@ -1,0 +1,67 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                          https://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+    <servers>
+        <server>
+            <id>webserver-maven-snapshot</id>
+            <username>admin</username>
+            <password>admin123</password>
+        </server>
+    </servers>
+
+    <mirrors>
+        <mirror>
+            <!--This sends everything else to /public -->
+            <id>public</id>
+            <mirrorOf>*</mirrorOf>
+            <url>http://192.168.56.4:8081/nexus/content/groups/public</url>
+        </mirror>
+
+        <mirror>
+            <id>central</id>
+            <name>Central</name>
+            <url>http://192.168.56.4:8081/nexus/content/repositories/central/</url>
+            <mirrorOf>central</mirrorOf>
+        </mirror>
+
+        <mirror>
+            <id>apache-snapshots</id>
+            <name>Apache Snapshots</name>
+            <url>http://192.168.56.4:8081/nexus/content/repositories/apache-snapshots/</url>
+            <mirrorOf>apache-snapshots</mirrorOf>
+        </mirror>
+
+    </mirrors>
+
+    <profiles>
+        <profile>
+            <id>ServletMaven-snapshot</id>
+            <repositories>
+                <repository>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                    <id>ServletMaven-snapshot</id>
+                    <name>ServletMaven-snapshot</name>
+                    <url>http://192.168.56.4:8081/nexus/content/repositories/ServletMaven-snapshot</url>
+                </repository>
+            </repositories>
+        </profile>
+        <profile>
+            <id>ServletMaven-release</id>
+            <repositories>
+                <repository>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                    <id>ServletMaven-release</id>
+                    <name>ServletMaven-release</name>
+                    <url>http://192.168.56.4:8081/nexus/content/repositories/ServletMaven-release/></url>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+
+</settings>
